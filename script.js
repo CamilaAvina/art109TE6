@@ -15,7 +15,6 @@ raster.visible = false;
 
 var lastPos = view.center;
 function moveHandler(event) {
-  (event.key == 'space')
 	if (!loaded)
 		return;
 	if (lastPos.getDistance(event.point) < 10 )
@@ -33,7 +32,7 @@ function moveHandler(event) {
 	var path = new Path.Rectangle({
 		point: this.bounds.topLeft.floor(),
 		size: size.ceil(),
-		onKeyDown : moveHandler
+		onMouseDrag: moveHandler
 	});
 	path.fillColor = raster.getAverageColor(path);
 
@@ -42,7 +41,7 @@ function moveHandler(event) {
 			? this.bounds.topCenter.ceil()
 			: this.bounds.leftCenter.ceil(),
 		size: size.floor(),
-		onKeyDown : moveHandler
+		onMouseDrag: moveHandler
 	});
 	path.fillColor = raster.getAverageColor(path);
 
@@ -63,6 +62,6 @@ function onResize(event) {
 	new Path.Rectangle({
 		rectangle: view.bounds,
 		fillColor: raster.getAverageColor(view.bounds),
-		onKeyDown : moveHandler
+		onMouseDrag: moveHandler
 	});
 }
