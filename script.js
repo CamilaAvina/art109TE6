@@ -32,7 +32,7 @@ function moveHandler(event) {
 	var path = new Path.Rectangle({
 		point: this.bounds.topLeft.floor(),
 		size: size.ceil(),
-		onMouseDrag: moveHandler
+		onMouseDown: moveHandler
 	});
 	path.fillColor = raster.getAverageColor(path);
 
@@ -41,7 +41,7 @@ function moveHandler(event) {
 			? this.bounds.topCenter.ceil()
 			: this.bounds.leftCenter.ceil(),
 		size: size.floor(),
-		onMouseDrag: moveHandler
+	onMouseDown: moveHandler
 	});
 	path.fillColor = raster.getAverageColor(path);
 
@@ -62,6 +62,6 @@ function onResize(event) {
 	new Path.Rectangle({
 		rectangle: view.bounds,
 		fillColor: raster.getAverageColor(view.bounds),
-		onMouseDrag: moveHandler
+		onMouseDown: moveHandler
 	});
 }
